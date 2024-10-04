@@ -1,5 +1,4 @@
 # TerraformProjects
-
 Create Terraform Configuration to Host Static Website on Azure
 
 #Terraform Naming conventions:
@@ -71,7 +70,7 @@ terraform {
     features {}
   }
 
-  Random String Resource
+  #Random String Resource
   resource "random_string" "myrandomstring" {
     length = 6
     special = false
@@ -79,13 +78,13 @@ terraform {
     number = false
   }
 
-  Create Resource Group
+  #Create Resource Group
   resource "azurerm_resource_group" "myresourcegroup" {
     name = var.resource_group_name
     location = var.location
   }
   
-  Create Storage Account
+  #Create Storage Account
   resource "azurerm_storage_account" "mystorageaccount" {
     name = "${var.storage_account_name}${var.random_string.myrandomstring.id}"
     resource_group_name = azurerm_resource_group.myresourcegroup.name
