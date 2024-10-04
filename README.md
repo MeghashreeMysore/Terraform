@@ -158,3 +158,15 @@ terraform {
   2.Static Website Setting enabled
   3.Verify the Staic Content Upload Successful
   4.Access Static Website: Go to Storage Account -> stdproj1 -> Data Management -> Static Website
+
+  Step-07 Destroy and Clean Up
+  terraform destroy -auto-approve
+
+  #Delete Terraform files
+  rm -rf .terraform*
+  rm -rf terraform.tfstate*
+
+  #Conclusion
+  Using above terraform configurations we have hosted a static website in Azure Storage Account in seconds.
+
+  
