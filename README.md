@@ -90,7 +90,7 @@ terraform {
     resource_group_name = azurerm_resource_group.myresourcegroup.name
     location = var.location
     account_tier = var.storage_account_tier
-    account_replication = var.storage_account_replication_type
+    account_replication_type = var.storage_account_replication_type
     account_kind = var.storage_account_kind
 
     static_website {
@@ -159,7 +159,7 @@ terraform {
   3.Verify the Staic Content Upload Successful
   4.Access Static Website: Go to Storage Account -> stdproj1 -> Data Management -> Static Website
 
-  Step-07 Destroy and Clean Up
+  ****#Step-07 Destroy and Clean Up
   terraform destroy -auto-approve
 
   #Delete Terraform files
