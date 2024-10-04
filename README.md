@@ -12,7 +12,7 @@ Terraform Static website is hosted using the above terraform configuration files
 
 **#Step-01 versions.tf**
 Terraform required version, azurerm, random and null providers source and versioning.
-`#ffffff`terraform {
+terraform {
   required_version = ">= 1.0.0"
   required_providers {
     azurerm = {
