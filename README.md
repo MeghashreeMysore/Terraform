@@ -75,7 +75,7 @@ terraform {
     length = 6
     special = false
     upper = false
-    number = false
+    numeric = false
   }
 
   #Create Resource Group
@@ -108,7 +108,7 @@ terraform {
   storage_account_kind = "StorageV2"
   static_website_index_document = "index.html"
   static_website_error_404_document = "error.html"
-  static_website_folder = ../
+  static_website_folder = ../static-content
 
   **#Step-05 Outputs.tf**
   output variable definitions
