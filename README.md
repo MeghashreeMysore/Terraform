@@ -2,7 +2,7 @@
 
 Create Terraform Configuration to Host Static Website on Azure
 
-Terraform Naming conventions:
+#Terraform Naming conventions:
 1.versions.tf
 2.main
 3.variables.tf
@@ -11,7 +11,7 @@ Terraform Naming conventions:
 
 Terraform Static website is hosted using the above terraform configuration files.
 
-Step-01 versions.tf
+#Step-01 versions.tf
 Terraform required version, azurerm, random and null providers source and versioning.
 terraform {
   required_version = ">= 1.0.0"
@@ -31,7 +31,7 @@ terraform {
    }
   }
 
-  Step-02 variables.tf
+  #Step-02 variables.tf
   variable "location" {
     type = "The azure region in which all resources should be created"
     description = string
@@ -65,13 +65,13 @@ terraform {
     description = string
   }
 
-  Step-03: main.tf
+  #Step-03: main.tf
   #Provider Block
   provider "azurerm" {
     features {}
   }
 
-  #Random String Resource
+  Random String Resource
   resource "random_string" "myrandomstring" {
     length = 6
     special = false
@@ -79,13 +79,13 @@ terraform {
     number = false
   }
 
-  #Create Resource Group
+  Create Resource Group
   resource "azurerm_resource_group" "myresourcegroup" {
     name = var.resource_group_name
     location = var.location
   }
   
-  #Create Storage Account
+  Create Storage Account
   resource "azurerm_storage_account" "mystorageaccount" {
     name = "${var.storage_account_name}${var.random_string.myrandomstring.id}"
     resource_group_name = azurerm_resource_group.myresourcegroup.name
@@ -100,7 +100,7 @@ terraform {
     }
   }
 
-  Step-04: terraform.tfvars
+  #Step-04: terraform.tfvars
   location = "eastus"
   resource_group_name = "myrg"
   storage_account_name = "staticwebsite"
@@ -111,7 +111,7 @@ terraform {
   static_website_error_404_document = "error.html"
   static_website_folder = ../
 
-  Step-05 Ouputs.tf
+  #Step-05 Ouputs.tf
   output variable definitions
   output "resource_group_id" {
     description = "resource group id"
@@ -134,7 +134,7 @@ terraform {
     value = azurerm_resource_group.mystorageaccount.name
   }
 
-  Step-06 Executing terraform commands
+  #Step-06 Executing terraform commands
   #Terraform initialize
   terraform init
 
@@ -159,4 +159,3 @@ terraform {
   2.Static Website Setting enabled
   3.Verify the Staic Content Upload Successful
   4.Access Static Website: Go to Storage Account -> stdproj1 -> Data Management -> Static Website
-  
