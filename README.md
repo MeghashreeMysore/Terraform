@@ -1,7 +1,7 @@
 # TerraformProjects
 Create Terraform Configuration to Host Static Website on Azure
 
-#Terraform Naming conventions:
+**#Terraform Naming conventions:**
 1.versions.tf
 2.main
 3.variables.tf
@@ -10,7 +10,7 @@ Create Terraform Configuration to Host Static Website on Azure
 
 Terraform Static website is hosted using the above terraform configuration files.
 
-#Step-01 versions.tf
+**#Step-01 versions.tf**
 Terraform required version, azurerm, random and null providers source and versioning.
 terraform {
   required_version = ">= 1.0.0"
@@ -30,7 +30,7 @@ terraform {
    }
   }
 
-  #Step-02 variables.tf
+  **#Step-02 variables.tf**
   variable "location" {
     type = "The azure region in which all resources should be created"
     description = string
@@ -64,7 +64,7 @@ terraform {
     description = string
   }
 
-  #Step-03: main.tf
+  **#Step-03: main.tf**
   #Provider Block
   provider "azurerm" {
     features {}
@@ -99,7 +99,7 @@ terraform {
     }
   }
 
-  #Step-04: terraform.tfvars
+  **#Step-04: terraform.tfvars**
   location = "eastus"
   resource_group_name = "myrg"
   storage_account_name = "staticwebsite"
@@ -110,7 +110,7 @@ terraform {
   static_website_error_404_document = "error.html"
   static_website_folder = ../
 
-  #Step-05 Ouputs.tf
+  **#Step-05 Outputs.tf**
   output variable definitions
   output "resource_group_id" {
     description = "resource group id"
@@ -133,7 +133,7 @@ terraform {
     value = azurerm_resource_group.mystorageaccount.name
   }
 
-  #Step-06 Executing terraform commands
+  **#Step-06 Executing terraform commands**
   #Terraform initialize
   terraform init
 
